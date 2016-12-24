@@ -4,7 +4,7 @@
   "description": "Hashtag finder from various social media websites",
   "main": "lib/tagneto.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jasmine"
   },
   "author": "Vinay Vasudevamurthy <vinay.vas@gmail.com>",
   "license": "MIT",
