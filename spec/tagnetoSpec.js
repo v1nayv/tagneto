@@ -1,16 +1,16 @@
-var tagnetoModule = require("../lib/tagneto.js")
-var Tagneto = tagnetoModule.Tagneto
-var TwitterSettings = tagnetoModule.TwitterSettings
+var Tagneto = require("../lib/tagneto.js")
+var TwitterClient = require("../lib/settings/twitterClient.js")
 
 describe("Tagneto", function() {
-  var twitterSettings = new TwitterSettings({
+  var twitterSettings ={
     consumerKey: "blah-consumer-key",
     consumerSecret: "blah-consumer-secret",
     accessTokenKey: "blah-token-key",
     accessTokenSecret: "blah-token-secret"
-  })
+  };
 
   var tagneto;
+  var twitterClient = new TwitterClient(twitterSettings);
 
   beforeEach(function() {
     tagneto = new Tagneto();
@@ -20,7 +20,7 @@ describe("Tagneto", function() {
     it("sets twitter settings", function() {
       tagneto.setTwitter(twitterSettings);
 
-      expect(tagneto.getTwitter()).toEqual(twitterSettings);
+      expect(tagneto.getTwitter()).toEqual(jasmine.any(TwitterClient));
     });
   });
 });
